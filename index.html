@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Projects Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF6ED;
+    --ink:#22283B;
+    --gold:#C79A46;
+    --terracotta:#C1543A;
+    --teal:#2F6E64;
+    --plum:#7C4066;
+    --card:#FFFFFF;
+    --line: rgba(34,40,59,0.10);
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background:var(--paper);
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 37px,
+        rgba(34,40,59,0.035) 38px
+      );
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    min-height:100vh;
+    transition:font-family .15s ease;
+  }
+
+  body[data-lang="hi"]{ font-family:'Noto Sans Devanagari','Work Sans',sans-serif; }
+  body[data-lang="gu"]{ font-family:'Noto Sans Gujarati','Work Sans',sans-serif; }
+  body[data-lang="ta"]{ font-family:'Noto Sans Tamil','Work Sans',sans-serif; }
+  body[data-lang="te"]{ font-family:'Noto Sans Telugu','Work Sans',sans-serif; }
+  body[data-lang="kn"]{ font-family:'Noto Sans Kannada','Work Sans',sans-serif; }
+  body[data-lang="ml"]{ font-family:'Noto Sans Malayalam','Work Sans',sans-serif; }
+  body[data-lang="ur"]{ font-family:'Noto Nastaliq Urdu','Work Sans',sans-serif; }
+
+  body[data-lang="hi"] h1, body[data-lang="gu"] h1, body[data-lang="ta"] h1,
+  body[data-lang="te"] h1, body[data-lang="kn"] h1, body[data-lang="ml"] h1,
+  body[data-lang="ur"] h1, body[data-lang="hi"] .salary, body[data-lang="gu"] .salary,
+  body[data-lang="ta"] .salary, body[data-lang="te"] .salary, body[data-lang="kn"] .salary,
+  body[data-lang="ml"] .salary, body[data-lang="ur"] .salary,
+  body[data-lang="hi"] .sub, body[data-lang="gu"] .sub, body[data-lang="ta"] .sub,
+  body[data-lang="te"] .sub, body[data-lang="kn"] .sub, body[data-lang="ml"] .sub,
+  body[data-lang="ur"] .sub{
+    font-family:inherit;
+    font-style:normal;
+  }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 24px 80px;
+  }
+
+  .lang-bar{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:36px;
+  }
+
+  .lang-select{
+    appearance:none;
+    -webkit-appearance:none;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    padding:10px 38px 10px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    box-shadow:0 2px 10px rgba(34,40,59,0.06);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2322283B' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 15px center;
+  }
+
+  .lang-select:focus{ outline:2px solid var(--teal); outline-offset:2px; }
+
+  header{ text-align:center; margin-bottom:56px; }
+
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    opacity:0.55;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+
+  .eyebrow::before, .eyebrow::after{ content:"—"; margin:0 10px; opacity:0.6; }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(30px, 5vw, 52px);
+    margin:0 0 16px 0;
+    letter-spacing:-0.01em;
+  }
+
+  h1 .accent{ color:var(--terracotta); font-style:italic; font-weight:500; }
+  body[data-lang="ur"] h1 .accent,
+  body[data-lang="hi"] h1 .accent,
+  body[data-lang="gu"] h1 .accent,
+  body[data-lang="ta"] h1 .accent,
+  body[data-lang="te"] h1 .accent,
+  body[data-lang="kn"] h1 .accent,
+  body[data-lang="ml"] h1 .accent{ font-style:normal; }
+
+  .sub{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(15.5px,2vw,19px);
+    opacity:0.7;
+    max-width:580px;
+    margin:0 auto;
+    line-height:1.7;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+    align-items:stretch;
+  }
+
+  @media (max-width:980px){ .grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:600px){ .grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:30px 24px 26px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    box-shadow:0 4px 18px rgba(34,40,59,0.05);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+
+  .card:hover{ transform:translateY(-4px); box-shadow:0 14px 30px rgba(34,40,59,0.10); }
+
+  .card.popular{
+    border-color:var(--terracotta);
+    box-shadow:0 14px 34px rgba(193,84,58,0.18);
+  }
+
+  .badge{
+    position:absolute;
+    top:-13px;
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--terracotta);
+    color:var(--paper);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:6px 16px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+
+  .duration{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:10px;
+    min-height:34px;
+  }
+
+  .card.popular .duration{ color:var(--terracotta); }
+
+  .salary{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:34px;
+    margin:0 0 4px 0;
+    color:var(--ink);
+  }
+
+  .salary-label{ font-size:12px; opacity:0.55; margin-bottom:20px; }
+
+  .divider{ height:1px; background:var(--line); margin:4px 0 18px 0; }
+
+  .features{
+    list-style:none;
+    padding:0;
+    margin:0 0 26px 0;
+    flex-grow:1;
+  }
+
+  .features li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:14.5px;
+    line-height:1.55;
+    margin-bottom:12px;
+    color:var(--ink);
+    opacity:0.85;
+  }
+
+  .features .emoji{ flex-shrink:0; font-size:15px; }
+
+  .apply{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:14px 20px;
+    font-family:'Work Sans', sans-serif;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    color:var(--paper);
+    background:var(--ink);
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    text-decoration:none;
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+
+  body[data-lang="hi"] .apply, body[data-lang="gu"] .apply, body[data-lang="ta"] .apply,
+  body[data-lang="te"] .apply, body[data-lang="kn"] .apply, body[data-lang="ml"] .apply,
+  body[data-lang="ur"] .apply{ font-family:inherit; text-transform:none; }
+
+  .apply::before{
+    content:"";
+    position:absolute;
+    top:0; left:-45%;
+    width:40%; height:100%;
+    z-index:-1;
+    background:linear-gradient(90deg, var(--teal), var(--terracotta) 55%, var(--gold));
+    animation:sweep 3.4s ease-in-out infinite;
+  }
+
+  @keyframes sweep{
+    0%   { left:-45%; }
+    55%  { left:105%; }
+    100% { left:105%; }
+  }
+
+  .card.popular .apply{ background:var(--terracotta); }
+  .card.popular .apply::before{
+    background:linear-gradient(90deg, var(--gold), var(--plum) 55%, var(--teal));
+  }
+
+  .apply:hover{ transform:translateY(-2px); box-shadow:0 10px 22px rgba(34,40,59,0.22); }
+
+  footer{
+    text-align:center;
+    margin-top:60px;
+    font-size:12.5px;
+    opacity:0.5;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.6;
+  }
+
+  /* RTL support for Urdu */
+  body[dir="rtl"] .lang-bar{ justify-content:flex-start; }
+  body[dir="rtl"] .lang-select{
+    padding:10px 16px 10px 38px;
+    background-position:left 15px center;
+  }
+  body[dir="rtl"] .features li{ flex-direction:row-reverse; text-align:right; }
+  body[dir="rtl"] .badge{ letter-spacing:0; }
+
+  @media (prefers-reduced-motion: reduce){
+    .apply::before{ animation:none; left:-45%; }
+  }
+</style>
+</head>
+<body data-lang="en">
+
+<div class="wrap">
+  <div class="lang-bar">
+    <select class="lang-select" id="langSelect" aria-label="Select language">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+      <option value="gu">ગુજરાતી</option>
+      <option value="ta">தமிழ்</option>
+      <option value="te">తెలుగు</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ml">മലയാളം</option>
+      <option value="ur">اردو</option>
+    </select>
+  </div>
+
+  <header>
+    <div class="eyebrow" data-i18n="eyebrow"></div>
+    <h1><span data-i18n="titleMain"></span> <span class="accent" data-i18n="titleAccent"></span></h1>
+    <p class="sub" data-i18n="sub"></p>
+  </header>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="duration" data-i18n="duration" data-n="7"></div>
+      <div class="salary">₹13,500</div>
+      <div class="salary-label" data-i18n="salaryLabel"></div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="emoji">📝</span><span data-i18n="writePages" data-n="100"></span></li>
+        <li><span class="emoji">📄</span><span data-i18n="perDay" data-n="14"></span></li>
+        <li><span class="emoji">➡️</span><span data-i18n="frontonly"></span></li>
+      </ul>
+      <a href="https://wa.me/+918090117035?text=Hi%20Aliya%20Book%20Publication%2C%20send%20me%20project%20information" target="_blank" rel="noopener" class="apply"><span data-i18n="apply"></span> 👉</a>
+    </div>
+
+    <div class="card">
+      <div class="duration" data-i18n="duration" data-n="10"></div>
+      <div class="salary">₹18,000</div>
+      <div class="salary-label" data-i18n="salaryLabel"></div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="emoji">📝</span><span data-i18n="writePages" data-n="160"></span></li>
+        <li><span class="emoji">📄</span><span data-i18n="perDay" data-n="16"></span></li>
+        <li><span class="emoji">➡️</span><span data-i18n="frontonly"></span></li>
+      </ul>
+      <a href="https://wa.me/+918090117035?text=Hi%20Aliya%20Book%20Publication%2C%20send%20me%20project%20information" target="_blank" rel="noopener" class="apply"><span data-i18n="apply"></span> 👉</a>
+    </div>
+
+    <div class="card">
+      <div class="duration" data-i18n="duration" data-n="12"></div>
+      <div class="salary">₹22,000</div>
+      <div class="salary-label" data-i18n="salaryLabel"></div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="emoji">📝</span><span data-i18n="writePages" data-n="200"></span></li>
+        <li><span class="emoji">📄</span><span data-i18n="perDay" data-n="17"></span></li>
+        <li><span class="emoji">➡️</span><span data-i18n="frontonly"></span></li>
+      </ul>
+      <a href="https://wa.me/+918090117035?text=Hi%20Aliya%20Book%20Publication%2C%20send%20me%20project%20information" target="_blank" rel="noopener" class="apply"><span data-i18n="apply"></span> 👉</a>
+    </div>
+
+    <div class="card popular">
+      <div class="badge" data-i18n="badge"></div>
+      <div class="duration" data-i18n="durationPremium"></div>
+      <div class="salary">₹30,000</div>
+      <div class="salary-label" data-i18n="salaryLabel"></div>
+      <div class="divider"></div>
+      <ul class="features">
+        <li><span class="emoji">📝</span><span data-i18n="writePages" data-n="300"></span></li>
+        <li><span class="emoji">📄</span><span data-i18n="perDay" data-n="20"></span></li>
+        <li><span class="emoji">➡️</span><span data-i18n="frontback"></span></li>
+      </ul>
+      <a href="https://wa.me/+918090117035?text=Hi%20Aliya%20Book%20Publication%2C%20send%20me%20project%20information" target="_blank" rel="noopener" class="apply"><span data-i18n="apply"></span> 👉</a>
+    </div>
+
+  </div>
+
+  <footer data-i18n="footer"></footer>
+</div>
+
+<script>
+const translations = {
+  en: {
+    eyebrow: "Work From Home",
+    titleMain: "Writing Projects",
+    titleAccent: "Plan",
+    sub: "Choose the project plan that best suits your schedule and start your handwriting work from home journey.",
+    duration: n => `${n} Day Project`,
+    durationPremium: "Premium Project",
+    badge: "Most Popular",
+    salaryLabel: "Salary",
+    writePages: n => `Write ${n} Pages`,
+    perDay: n => `${n} Pages Per Day`,
+    frontonly: "Front Side Writing Only",
+    frontback: "Front & Back Side Writing",
+    apply: "Apply Now",
+    footer: "Select your language above to view this page in your preferred language."
+  },
+  hi: {
+    eyebrow: "घर बैठे काम",
+    titleMain: "राइटिंग प्रोजेक्ट्स",
+    titleAccent: "प्लान",
+    sub: "अपने समय के अनुसार सबसे उपयुक्त प्रोजेक्ट प्लान चुनें और घर बैठे हस्तलेखन कार्य की शुरुआत करें।",
+    duration: n => `${n} दिन का प्रोजेक्ट`,
+    durationPremium: "प्रीमियम प्रोजेक्ट",
+    badge: "सबसे लोकप्रिय",
+    salaryLabel: "सैलरी",
+    writePages: n => `कुल ${n} पेज लिखें`,
+    perDay: n => `${n} पेज प्रतिदिन`,
+    frontonly: "केवल आगे की तरफ लेखन",
+    frontback: "आगे और पीछे दोनों तरफ लेखन",
+    apply: "अभी आवेदन करें",
+    footer: "अपनी पसंदीदा भाषा में यह पेज देखने के लिए ऊपर भाषा चुनें।"
+  },
+  gu: {
+    eyebrow: "ઘરેથી કામ",
+    titleMain: "રાઇટિંગ પ્રોજેક્ટ્સ",
+    titleAccent: "પ્લાન",
+    sub: "તમારા સમય માટે શ્રેષ્ઠ અનુકૂળ પ્રોજેક્ટ પ્લાન પસંદ કરો અને ઘરેથી હસ્તલેખન કાર્યની શરૂઆત કરો.",
+    duration: n => `${n} દિવસનો પ્રોજેક્ટ`,
+    durationPremium: "પ્રીમિયમ પ્રોજેક્ટ",
+    badge: "સૌથી લોકપ્રિય",
+    salaryLabel: "પગાર",
+    writePages: n => `કુલ ${n} પાનાં લખો`,
+    perDay: n => `${n} પાનાં પ્રતિદિન`,
+    frontonly: "ફક્ત આગળની બાજુ લેખન",
+    frontback: "આગળ અને પાછળ બંને બાજુ લેખન",
+    apply: "હમણાં અરજી કરો",
+    footer: "તમારી પસંદગીની ભાષામાં આ પેજ જોવા માટે ઉપર ભાષા પસંદ કરો."
+  },
+  ta: {
+    eyebrow: "வீட்டிலிருந்தே வேலை",
+    titleMain: "எழுத்து திட்டங்கள்",
+    titleAccent: "திட்டம்",
+    sub: "உங்கள் நேரத்திற்கு மிகவும் பொருந்தும் திட்டத்தைத் தேர்ந்தெடுத்து வீட்டிலிருந்தே கையெழுத்து வேலையைத் தொடங்குங்கள்.",
+    duration: n => `${n} நாள் திட்டம்`,
+    durationPremium: "பிரீமியம் திட்டம்",
+    badge: "மிகவும் பிரபலமானது",
+    salaryLabel: "சம்பளம்",
+    writePages: n => `மொத்தம் ${n} பக்கங்கள் எழுதவும்`,
+    perDay: n => `நாளொன்றுக்கு ${n} பக்கங்கள்`,
+    frontonly: "முன் பக்கம் மட்டும் எழுதுதல்",
+    frontback: "முன் மற்றும் பின் பக்கம் எழுதுதல்",
+    apply: "இப்போது விண்ணப்பிக்கவும்",
+    footer: "உங்கள் விருப்பமான மொழியில் இந்தப் பக்கத்தைக் காண மேலே மொழியைத் தேர்ந்தெடுக்கவும்."
+  },
+  te: {
+    eyebrow: "ఇంటి నుండి పని",
+    titleMain: "రైటింగ్ ప్రాజెక్ట్స్",
+    titleAccent: "ప్లాన్",
+    sub: "మీ సమయానికి బాగా సరిపోయే ప్రాజెక్ట్ ప్లాన్‌ను ఎంచుకుని ఇంటి నుండి చేతిరాత పనిని ప్రారంభించండి.",
+    duration: n => `${n} రోజుల ప్రాజెక్ట్`,
+    durationPremium: "ప్రీమియం ప్రాజెక్ట్",
+    badge: "అత్యంత ప్రజాదరణ",
+    salaryLabel: "జీతం",
+    writePages: n => `మొత్తం ${n} పేజీలు రాయండి`,
+    perDay: n => `రోజుకు ${n} పేజీలు`,
+    frontonly: "ముందు వైపు రాత మాత్రమే",
+    frontback: "ముందు మరియు వెనుక వైపు రాత",
+    apply: "ఇప్పుడు దరఖాస్తు చేయండి",
+    footer: "మీకు నచ్చిన భాషలో ఈ పేజీని చూడటానికి పైన భాషను ఎంచుకోండి."
+  },
+  kn: {
+    eyebrow: "ಮನೆಯಿಂದ ಕೆಲಸ",
+    titleMain: "ರೈಟಿಂಗ್ ಪ್ರಾಜೆಕ್ಟ್ಸ್",
+    titleAccent: "ಪ್ಲಾನ್",
+    sub: "ನಿಮ್ಮ ಸಮಯಕ್ಕೆ ಸೂಕ್ತವಾದ ಪ್ರಾಜೆಕ್ಟ್ ಯೋಜನೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ಮನೆಯಿಂದ ಕೈಬರಹ ಕೆಲಸವನ್ನು ಪ್ರಾರಂಭಿಸಿ.",
+    duration: n => `${n} ದಿನಗಳ ಪ್ರಾಜೆಕ್ಟ್`,
+    durationPremium: "ಪ್ರೀಮಿಯಂ ಪ್ರಾಜೆಕ್ಟ್",
+    badge: "ಅತ್ಯಂತ ಜನಪ್ರಿಯ",
+    salaryLabel: "ಸಂಬಳ",
+    writePages: n => `ಒಟ್ಟು ${n} ಪುಟಗಳನ್ನು ಬರೆಯಿರಿ`,
+    perDay: n => `ಪ್ರತಿದಿನ ${n} ಪುಟಗಳು`,
+    frontonly: "ಮುಂಭಾಗ ಮಾತ್ರ ಬರವಣಿಗೆ",
+    frontback: "ಮುಂಭಾಗ ಮತ್ತು ಹಿಂಭಾಗ ಬರವಣಿಗೆ",
+    apply: "ಈಗ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
+    footer: "ನಿಮ್ಮ ಇಚ್ಛೆಯ ಭಾಷೆಯಲ್ಲಿ ಈ ಪುಟವನ್ನು ವೀಕ್ಷಿಸಲು ಮೇಲೆ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ."
+  },
+  ml: {
+    eyebrow: "വീട്ടിൽ നിന്നുള്ള ജോലി",
+    titleMain: "റൈറ്റിംഗ് പ്രോജക്ട്സ്",
+    titleAccent: "പ്ലാൻ",
+    sub: "നിങ്ങളുടെ സമയത്തിന് ഏറ്റവും അനുയോജ്യമായ പ്രോജക്ട് പ്ലാൻ തിരഞ്ഞെടുത്ത് വീട്ടിൽ നിന്ന് കൈയെഴുത്ത് ജോലി ആരംഭിക്കുക.",
+    duration: n => `${n} ദിവസത്തെ പ്രോജക്ട്`,
+    durationPremium: "പ്രീമിയം പ്രോജക്ട്",
+    badge: "ഏറ്റവും ജനപ്രിയം",
+    salaryLabel: "ശമ്പളം",
+    writePages: n => `ആകെ ${n} പേജുകൾ എഴുതുക`,
+    perDay: n => `പ്രതിദിനം ${n} പേജുകൾ`,
+    frontonly: "മുൻവശം മാത്രം എഴുത്ത്",
+    frontback: "മുൻവശവും പിൻവശവും എഴുത്ത്",
+    apply: "ഇപ്പോൾ അപേക്ഷിക്കുക",
+    footer: "നിങ്ങൾക്ക് ഇഷ്ടമുള്ള ഭാഷയിൽ ഈ പേജ് കാണാൻ മുകളിൽ ഭാഷ തിരഞ്ഞെടുക്കുക."
+  },
+  ur: {
+    eyebrow: "گھر بیٹھے کام",
+    titleMain: "رائٹنگ پراجیکٹس",
+    titleAccent: "پلان",
+    sub: "اپنے وقت کے مطابق بہترین پراجیکٹ پلان منتخب کریں اور گھر بیٹھے ہاتھ سے لکھنے کا کام شروع کریں۔",
+    duration: n => `${n} دن کا پراجیکٹ`,
+    durationPremium: "پریمیم پراجیکٹ",
+    badge: "سب سے مقبول",
+    salaryLabel: "تنخواہ",
+    writePages: n => `کل ${n} صفحات لکھیں`,
+    perDay: n => `روزانہ ${n} صفحات`,
+    frontonly: "صرف اگلی طرف لکھائی",
+    frontback: "اگلی اور پچھلی دونوں طرف لکھائی",
+    apply: "ابھی درخواست دیں",
+    footer: "اپنی پسندیدہ زبان میں یہ صفحہ دیکھنے کے لیے اوپر زبان منتخب کریں۔"
+  }
+};
+
+function applyLanguage(lang){
+  const t = translations[lang] || translations.en;
+  document.body.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  document.body.setAttribute('dir', lang === 'ur' ? 'rtl' : 'ltr');
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const n = el.getAttribute('data-n');
+    const value = t[key];
+    if (typeof value === 'function'){
+      el.textContent = value(n);
+    } else if (value !== undefined){
+      el.textContent = value;
+    }
+  });
+}
+
+const select = document.getElementById('langSelect');
+select.value = 'en';
+applyLanguage('en');
+select.addEventListener('change', (e) => applyLanguage(e.target.value));
+</script>
+
+</body>
+</html>
